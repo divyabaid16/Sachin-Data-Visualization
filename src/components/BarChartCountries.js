@@ -12,9 +12,9 @@ class BarChart extends Component {
         const margin=50;
         let countries=[];
         let runs=[];
-        let db=[];
+        let dataset=[];
         for(let i of data.keys()){
-            db.push([[data.get(i)*1],[i]]);
+            dataset.push([[data.get(i)*1],[i]]);
             countries.push(i);
             runs.push([data.get(i)])
         }
@@ -23,7 +23,7 @@ class BarChart extends Component {
         var min=Math.min(...runs);
 
         console.log(max,min);
-        console.log(db[0]);
+        console.log(dataset[0]);
 
         console.log(countries);
         d3.select("body").append("h1").text(this.props.title).attr("class","heading");
@@ -32,7 +32,7 @@ class BarChart extends Component {
             .domain(countries)
             .range([20,w-40]);
         const yScale = d3.scaleLinear()
-            .domain([0, d3.max(db, function(d) { return d[0]*1; })])
+            .domain([0, d3.max(dataset, function(d) { return d[0]*1; })])
             .range([h, 0]);
 
         const svg = d3.select("body").append("svg")
@@ -43,7 +43,7 @@ class BarChart extends Component {
 
 
         svg.selectAll("rect")
-            .data(db)
+            .data(dataset)
             .enter()
             .append("rect")
             .attr("x", (d, i) => (i*60))
@@ -60,7 +60,7 @@ class BarChart extends Component {
             });
 
         svg.selectAll("text")
-            .data(db)
+            .data(dataset)
             .enter()
             .append("text")
             .text((d,i) => d[0])
@@ -111,7 +111,6 @@ class BarChart extends Component {
     }
 
     render(){
-        //return <div id={"#" + this.props.id}></div>
         return(
             <div>
 

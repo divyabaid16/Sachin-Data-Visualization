@@ -59,7 +59,7 @@ class BarChart extends Component {
             .style("font-size","15")
             .call(xAxis);
 
-        //Adding label to X-axis
+        //Add label to X-axis
         svg.append("text")
             .attr("transform", "translate(" + (w/2) + " ," + (h +margin+10) + ")")
             .style("text-anchor", "middle")
@@ -72,6 +72,7 @@ class BarChart extends Component {
             .attr("class","font-axis")
             .call(yAxis);
 
+        //Add label tp  Y-axis
         svg.append("text")
             .attr("transform", "rotate(-90)")
             .attr("font-size","20")
@@ -104,9 +105,7 @@ class BarChart extends Component {
     }
 
     render(){
-        //return <div id={"#" + this.props.id}></div>
         return(
-
             <div className="container-fluid">
                 <div className="svg heading">
                     <h1>{this.props.title}</h1>

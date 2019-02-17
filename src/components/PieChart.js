@@ -1,12 +1,5 @@
 import React, {Component} from 'react';
 import * as d3 from "d3";
-import '../App.css';
-
-const text=`
-    font-size:15px;
-    font-weight:bold;
-    fill:white;
-`;
 
 export default class PieChart extends Component {
 
@@ -23,13 +16,13 @@ export default class PieChart extends Component {
         const h=this.props.height;
         const w=this.props.width;
         const margin = 50;
-        var db=[];
+        var dataset=[];
         for(var i=0;i<d.length;i++){
-            db.push([raw_data[i],d[i]]);
+            dataset.push([raw_data[i],d[i]]);
         }
 
         var colors=d3.scaleOrdinal(d3.schemeDark2);
-        var data = d3.pie().value(function(d) { return d[0] ;})(db);
+        var data = d3.pie().value(function(d) { return d[0] ;})(dataset);
         console.log(data);
 
         var svg=d3.select("body").append("svg")

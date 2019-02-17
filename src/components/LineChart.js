@@ -20,34 +20,36 @@ export default class LineChart extends Component {
         for(let i of data.keys()){
             dataset.push([[data.get(i)],[i]]);
         }
-
+        //used for styling
         var div = d3.select("body").append("div")
             .attr("class", "tooltip")
             .attr("id", "tooltip")
             .style("opacity", 0);
+
+        //Add Heading
         d3.select("body").append("h1").text(this.props.title).attr("class","heading");
+
+        //Add svg element
         const svg = d3.select("body").append("svg")
             .attr("width", w+3*margin)
             .attr("height", h+3*margin)
             .append("g")
             .attr("transform", "translate(" + 2*margin + "," + margin + ")");
 
+        //Define the scale
         var x = d3.scaleTime().range([0, w]);
         var y = d3.scaleLinear().range([h, 0]);
 
-
-// define the line
-
+        //Get values for the line
         var valueline = d3.line()
             .x(function(d) { return x(d[1]) })
             .y(function(d) { return y(d[0]) });
 
+        //Domain of the Axis
         x.domain(d3.extent(dataset, function(d) { return d[1]; }));
         y.domain([0, d3.max(dataset, function(d) { return d[0]*1; })]);
 
-
-
-
+        //Create the path
         svg.append("path")
             .datum(dataset)
             .attr("fill", "none")
@@ -57,6 +59,7 @@ export default class LineChart extends Component {
             .attr("stroke-width", 1.5)
             .attr("d", valueline);
 
+        //Create circles (data points)
         svg.selectAll("circle")
             .data(dataset)
             .enter()
@@ -79,12 +82,15 @@ export default class LineChart extends Component {
             });
 
         var formatxAxis = d3.format('.0f');
+
         // Add the X Axis
         svg.append("g")
             .attr("transform", "translate(0," + h + ")")
             .attr("class","font-axis")
             .call(d3.axisBottom(x).tickFormat(formatxAxis)
                 .ticks(10));
+
+        //X Label
         svg.append("text")
             .attr("transform",
                 "translate(" + (w/2) + " ," +
@@ -98,6 +104,7 @@ export default class LineChart extends Component {
             .attr("class","font-axis")
             .call(d3.axisLeft(y));
 
+        //Y Label
         svg.append("text")
             .attr("transform", "rotate(-90)")
             .attr("font-size","20")
@@ -107,6 +114,7 @@ export default class LineChart extends Component {
             .style("text-anchor", "middle")
             .text(this.props.text);
 
+        //Add description
         d3.select("body").append("p").text(this.props.para);
 
     }

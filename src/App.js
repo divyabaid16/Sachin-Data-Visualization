@@ -6,7 +6,6 @@ import BarChart from './components/BarChart'
 import LineChart from './components/LineChart'
 import {csv} from 'd3-request'
 import * as d3 from 'd3';
-import WorldChart from "./components/WorldChart";
 import BarChartCountries from "./components/BarChartCountries";
 import PieChart from "./components/PieChart"
 import {external} from "./data";
@@ -83,11 +82,9 @@ class App extends Component {
             average();
 
             let map_country_total=new Map();
-            let map_country_result_won=new Map();
 
             //Calculate total runs scored against each country
             var countryScore=function () {
-                var j=0;
                 for(var i=0;i<data.length;i++){
 
                     if(map_country_total.has(opposition[i])){

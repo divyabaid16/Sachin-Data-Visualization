@@ -1,6 +1,6 @@
 export const external=[
     {
-        title: "Bar graph - Runs scored in ODIs",
+        title: "Sachin Tendulkar - Runs scored in ODIs",
         data: "It represents the Sachin's each innings score from 1990 to 2012. In the first innings, he scored a total of 0 runs against Pakistan. We can see that there are a lot of big innings there afterwards!\n" +
         "He was also the first player to break the double-hundred barrier in ODIs in 2010 when he achieved the unthinkable in Gwalior against South Africa."
     },

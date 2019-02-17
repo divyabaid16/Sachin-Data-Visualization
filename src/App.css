@@ -2,7 +2,6 @@
   text-align: center;
     margin-top: 50px;
 }
-
 body{
     margin: 70px !important;
     font-family: 'Josefin Slab', serif !important;
@@ -33,7 +32,6 @@ p{
 
 div.tooltip {
     position: absolute;
-
     padding: 10px;
     font: 12px sans-serif;
     background: lightsteelblue;
