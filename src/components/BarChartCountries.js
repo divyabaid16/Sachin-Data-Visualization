@@ -26,7 +26,7 @@ class BarChart extends Component {
         console.log(dataset[0]);
 
         console.log(countries);
-        d3.select("body").append("h1").text(this.props.title).attr("class","heading");
+        d3.select(".area").append("h1").text(this.props.title).attr("class","heading");
 
         const xScale = d3.scalePoint()
             .domain(countries)
@@ -35,7 +35,7 @@ class BarChart extends Component {
             .domain([0, d3.max(dataset, function(d) { return d[0]*1; })])
             .range([h, 0]);
 
-        const svg = d3.select("body").append("svg")
+        const svg = d3.select(".area").append("svg")
             .attr("width", w+2*margin)
             .attr("height", h+3*margin)
             .append("g")
@@ -107,14 +107,12 @@ class BarChart extends Component {
         svg.selectAll("rect")
             .append("title")
             .text((data) => data);
-        d3.select("body").append("p").text(this.props.para);
+        d3.select(".area").append("p").text(this.props.para);
     }
 
     render(){
         return(
-            <div>
-
-            </div>
+            <div className="container-fluid area"></div>
         )
     }
 }

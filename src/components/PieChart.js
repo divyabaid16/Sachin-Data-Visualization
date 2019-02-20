@@ -9,7 +9,7 @@ export default class PieChart extends Component {
 
     drawChart() {
 
-        d3.select("body").append("h1").text(this.props.title).attr("class","heading");
+        d3.select(".area").append("h1").text(this.props.title).attr("class","heading");
 
         const raw_data = this.props.data;
         const d=["score between 0 - 50","score between 50 - 100","score between 100 - 150","score greater than 150"];
@@ -25,7 +25,7 @@ export default class PieChart extends Component {
         var data = d3.pie().value(function(d) { return d[0] ;})(dataset);
         console.log(data);
 
-        var svg=d3.select("body").append("svg")
+        var svg=d3.select(".area").append("svg")
             .attr("width",w)
             .attr("height",h+2*margin);
 
@@ -58,13 +58,14 @@ export default class PieChart extends Component {
             .attr("x",30)
             .attr("y",20);
 
-        d3.select("body").append("p").text(this.props.para);
+        d3.select(".area").append("p").text("Note: The above chart shows the number of matches in which Sachin has scored the runs between *0 to 50* , *50 to 100* , *100 to 150* , *150 and above*").attr("class","note");
+        d3.select(".area").append("p").text(this.props.para).classed("wells",true);
 
     }
 
     render() {
         return (
-            <div></div>
+            <div className="container-fluid area"></div>
         );
     }
 }

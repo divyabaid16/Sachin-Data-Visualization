@@ -17,11 +17,13 @@ export const external=[
         data:"As we can compare with the above graph, the total number of runs scored in a year is directly correlated with the number of matches played in that particular year. We can witness that he had played a lot of matches throughout his ODI career especially during the early mid and late phases of his career. "
     },
     {
-        title:"Bar graph - Total number of scores country wise",
+        title:"Bar graph - Total number of runs country wise",
         data:"As we can see from the bar graph that he has scored massive runs against each opponent. Almost every record was smashed by the man who could play in any situation. He scored the highest number of runs against Sri-Lanka by an Indian cricketer."
     },
     {
-        title:"Pie chart - Runs scored range wise",
+        title:"Pie chart - Number of innings : in the given score range",
         data:"In ODI Sachin Tendulkar holds the record for the highest number of man of the match titles, with 62 awards in 463 matches played. He holds the record of most career runs in ODI in the world with the overall of 18,426 runs in ODI. In 2012, he became the first player to score 100 international tons besides being miles ahead in terms of runs scored in Tests and ODIs."
     }
 ];
+
+export const image=["img/image-1.jpg","img/image-2.jpeg"]

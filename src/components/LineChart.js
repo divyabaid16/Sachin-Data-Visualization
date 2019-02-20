@@ -27,10 +27,10 @@ export default class LineChart extends Component {
             .style("opacity", 0);
 
         //Add Heading
-        d3.select("body").append("h1").text(this.props.title).attr("class","heading");
+        d3.select(".area").append("h1").text(this.props.title).attr("class","heading");
 
         //Add svg element
-        const svg = d3.select("body").append("svg")
+        const svg = d3.select(".area").append("svg")
             .attr("width", w+3*margin)
             .attr("height", h+3*margin)
             .append("g")
@@ -115,19 +115,13 @@ export default class LineChart extends Component {
             .text(this.props.text);
 
         //Add description
-        d3.select("body").append("p").text(this.props.para);
+        d3.select(".area").append("p").text("Note: Hover the cursor on the dot to get the exact value").attr("class","note");
+        d3.select(".area").append("p").text(this.props.para);
 
     }
     render() {
         return (
-            <div className="container svg">
-                <div className="heading">
-
-                </div>
-                <div>
-
-                </div>
-            </div>
+            <div className="container-fluid area"></div>
         );
     }
 }

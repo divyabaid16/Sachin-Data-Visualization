@@ -8,7 +8,7 @@ import {csv} from 'd3-request'
 import * as d3 from 'd3';
 import BarChartCountries from "./components/BarChartCountries";
 import PieChart from "./components/PieChart"
-import {external} from "./data";
+import {external,image} from "./data";
 
 
 class App extends Component {
@@ -139,7 +139,16 @@ class App extends Component {
         }
         return (
             <div className="App">
-                <div className="container">
+                <div className="container-fluid">
+                    <div className="row">
+                        <div className="col-lg-2 d-none d-xl-block">
+                            <div>
+                                <img  className="fixed-0" src={image[0]}/>
+                                <img  className="fixed-1" src={image[1]}/>
+                            </div>
+                        </div>
+                        <div className="col-lg-10 col-md-12">
+                    <h1 className="main-heading"><span className="heading">Sachin Tendulkar </span>- A tribute to the Master Blaster</h1>
                     <React.Fragment>
                     <BarChart data={this.state.data1} width={this.state.width} height={this.state.height} date={this.state.date} result={this.state.result} para={external[0].data} title={external[0].title}/>
                     <LineChart data={this.state.sum} width={this.state.width} height={this.state.height} text={"Total runs"} para={external[1].data} title={external[1].title} color={this.color[0]}/>
@@ -148,6 +157,9 @@ class App extends Component {
                     <BarChartCountries data={this.state.country} width={this.state.width} height={this.state.height} para={external[4].data} title={external[4].title}/>
                     <PieChart data={this.state.range} width={this.state.width} height={this.state.height} para={external[5].data} title={external[5].title}/>
                     </React.Fragment>
+                            <h5 className="footer">Developed by: <span className="heading">Divya Baid</span></h5>
+                    </div>
+                    </div>
                 </div>
             </div>
         );

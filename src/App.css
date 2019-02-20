@@ -3,7 +3,6 @@
     margin-top: 50px;
 }
 body{
-    margin: 70px !important;
     font-family: 'Josefin Slab', serif !important;
     font-size: 1.4rem !important;
     text-align: center !important;
@@ -12,9 +11,7 @@ body{
     margin-top: 50px;
     font-family: 'Acme', sans-serif;
 }
-p{
-    margin: 100px;
-}
+
 .pie{
     font-size:20px;
     font-weight:bold;
@@ -38,4 +35,32 @@ div.tooltip {
     border: 0px;
     border-radius: 8px;
     pointer-events: none;
+}
+svg{
+    border: 3px solid midnightblue;
+    margin: 30px 0px;
+    background-color: #FFFFCC;
+}
+.fixed-0{
+    position: fixed;
+    top:50px;
+    left: 30px;
+}
+.fixed-1{
+    position: fixed;
+    top:450px;
+    left: 30px;
+}
+.main-heading{
+    color: #990000;
+}
+.footer{
+    margin-top: 30px;
+    text-align: right;
+    color: #990000;
+}
+.note{
+    background-color: green;
+    color: white;
+    border-radius: 20px;
 }
